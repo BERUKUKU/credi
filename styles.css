@@ -28,12 +28,10 @@ h1 {
 }
 .hero-content {
   position: absolute;
-  top: 30%; /* 画面中央より少し上 */
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-align: center;
-  z-index: 10;
-  width: 80%;
 }
 
 .hero-content h1 {
@@ -46,16 +44,13 @@ h1 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5px;
-  position: relative;
-  top: -40px; /* 少し上に移動 */
+  margin-top: 10px;
 }
 
 .hero-content .p2 {
   font-size: 1rem;
   font-weight: normal;
-  margin-top: 120px; /* 少し下に移動 */
-  position: relative;
-  top: 5px;
+  margin-top: 130px; /* 下に押し出す距離はこれでOK！
 }
 @media (max-width: 1024px) {
   .hero-video {
@@ -63,17 +58,21 @@ h1 {
     height: auto;
     max-height: 100vh;
     object-fit: contain; /* 画面内に収める */
-  }
 }
+
 @media (max-width: 768px) {
   .hero-video {
-    width: 110vw; /* 画面より少し広めに */
+    width: 150vw; /* 画面より少し広めに */
     height: 100vh;
     object-fit: cover;
   }
   .hero-content {
+    position: absolute; /* ← topが効くように追加！ */
+    top: 30%; /* スマホで中央寄せ */
+    left: 50%;
+    transform: translateX(-50%);
     width: 80%;
-    top: 30%; /* スマホで適切な位置に */
+    text-align: center;
   }
 
   .hero-content h1 {
@@ -81,12 +80,12 @@ h1 {
   }
 
   .hero-content .p1 {
-    font-size: 1rem;
-    margin-top: 30px;
+    font-size: 1.2rem;
+    margin-top: 10px;
   }
-
   .hero-content .p2 {
     font-size: 1rem;
+    margin-top: 130px; /* 下に押し出す距離はこれでOK！ */
   }
   .contact-btn {
     top: 10px;
@@ -101,13 +100,6 @@ h1 {
   right: 20px;
 }
 
-.hero-content {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
 .hero .contact-btn {
   position: absolute;
   top: 20px;
