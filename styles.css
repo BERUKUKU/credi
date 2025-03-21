@@ -65,7 +65,7 @@ h1 {
     height: 80vh; /* スマホでは高さを70%にする */
   }
   .hero-video {
-    width: 150vh;
+    width: 180vh;
     height: 100%;
     object-fit: cover;
   }
@@ -88,7 +88,7 @@ h1 {
   }
   .hero-content .p2 {
     font-size: 1rem;
-    margin-top: 170px; /* 下に押し出す距離はこれでOK！ */
+    margin-top: 200px; /* 下に押し出す距離はこれでOK！ */
   }
   .contact-btn {
     top: 10px;
