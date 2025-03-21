@@ -88,7 +88,7 @@ h1 {
   }
   .hero-content .p2 {
     font-size: 0.8rem;
-    margin-top: 300px; /* 下に押し出す距離はこれでOK！ */
+    margin-top: 250px; /* 下に押し出す距離はこれでOK！ */
   }
   .contact-btn {
     top: 10px;
