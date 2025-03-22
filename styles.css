@@ -6,6 +6,18 @@ body {
   background-color: #f8f8f8;
   color: #333;
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .hero {
   position: relative;
@@ -151,6 +163,34 @@ h1 {
   line-height: 2;
   color: #333;
 }
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+}
+
+.service-card:hover::before {
+  animation: shine 0.75s forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
 
 .services {
   display: flex;
@@ -271,14 +311,45 @@ h1 {
 }
 
 .workflow-card {
-  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(240, 240, 240, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+  animation: gradientFlow 8s ease infinite;
+
+  backdrop-filter: blur(5px);
   border-radius: 15px;
   padding: 20px;
-  width: 300px; /* サービスカードと完全一致 */
+  width: 300px;
   text-align: left;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  flex: 1 1 300px; /* 横並びを維持 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.workflow-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+  .workflow-card {
+    width: 100%;
+  }
 }
 
 .workflow-card h3 {
@@ -294,7 +365,9 @@ h1 {
 .workflow-card p {
   font-size: 0.9rem; /* サービスカードの説明文と統一 */
   color: #333;
+  transition: all 0.3s ease;
 }
+
 .workflow-card ul {
   list-style: none;
   padding: 0;
@@ -468,5 +541,13 @@ h1 {
   .contact-footer {
     font-size: 1.2rem;
     padding: 10px 40px;
+  }
+  .contact-btn {
+    transition: all 0.3s ease;
+  }
+
+  .contact-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
   }
 }
